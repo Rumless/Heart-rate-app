@@ -1,37 +1,37 @@
-# This is a basic workflow to help you get started with Actions
+```python
+import time
 
-name: CI
+class HeartRateApp:
+    def __init__(self):
+        self.start_time = 0
+        self.clicks = 0
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    def start(self):
+        self.start_time = time.time()
+        self.clicks = 0
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    def click(self):
+        self.clicks += 1
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: android-latest
+    def stop(self):
+        self.stop_time = time.time()
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-    
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+    def get_bpm(self):
+        elapsed_time = self.stop_time - self.start_time
+        bpm = (self.clicks / elapsed_time) * 60
+        return bpm
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+# Testing
+app = HeartRateApp()
+app.start()
+time.sleep(10)  
+# Simulate 10 seconds of clicking
+for _ in range(10):  
+# Simulate 10 clicks
+    app.click()
+app.stop()
+print(app.get_bpm())  # Should print 60 (10 clicks per 10 seconds = 60 BPM)
+```
+```requirements
+time
+```
