@@ -1,0 +1,52 @@
+import time
+    class HeartRateMonitor:
+
+
+    def __init__(self):
+  
+      
+        self.start_time = 0
+      
+      
+        self.end_time = 0
+      
+      
+        self.pulse_count = 0
+
+
+    def start(self):
+ 
+        self.start_time = time.time()
+
+
+    def pulse(self):
+        self.pulse_count += 1
+
+
+    def stop(self):
+        self.end_time = time.time()
+
+
+    def calculate_bpm(self):
+        elapsed_time = self.end_time - self.start_time
+        elapsed_minutes = elapsed_time / 60 
+        bpm = self.pulse_count / elapsed_minutes
+        return bpm
+
+# Testing
+monitor = HeartRateMonitor()
+monitor.start()
+time.sleep(1)  # Simulate time passing
+monitor.pulse()
+time.sleep(1)  # Simulate time passing
+monitor.pulse()
+monitor.stop()
+print(monitor.calculate_bpm())
+
+requirements time
+
+
+
+
+
+
