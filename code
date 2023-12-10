@@ -43,7 +43,6 @@ monitor.pulse()
 monitor.stop()
 print(monitor.calculate_bpm())
 
-requirements time
 
 
 
