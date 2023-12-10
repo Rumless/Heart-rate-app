@@ -1,5 +1,5 @@
 import time
-    class HeartRateMonitor:
+class HeartRateMonitor:
 
 
     def __init__(self):
@@ -44,7 +44,7 @@ monitor.stop()
 print(monitor.calculate_bpm())
 
 
-end
+
 
 
 
