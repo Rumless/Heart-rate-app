@@ -44,6 +44,9 @@ monitor.stop()
 print(monitor.calculate_bpm())
 
 
+end
+
+
 
 
 
